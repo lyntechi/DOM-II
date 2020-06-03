@@ -1,32 +1,62 @@
 // Your code goes here
 
 
-let header = document.querySelector("header")
-header.onmouseover = mouseOver;
-header.onmouseout = mouseOut;
-
-function mouseOver() {
-header.style.backgroundColor = "yellow"; 
+let header = document.querySelector(".main-navigation")
+//mouseover
+function launchOne (event){
+  header.style.backgroundColor = "lightblue";
+  console.log('this is mouseover', event.target)
 }
 
-function mouseOut() {
-    header.style.backgroundColor = "white"; 
-    }
+header.addEventListener('mouseover', launchOne)
+//mouseout
+function launchTwo (event){
+  header.style.backgroundColor = "white";
+  console.log('this is mouseout', event.target)
+}
+
+header.addEventListener('mouseout', launchTwo)
+
+
+
+//keydown
+
+function closeOnEsc (event){
+  if (event.key === 'Escape'){
+    console.log(prompt('Were you satisfied with our content?'))
     
-
-    // header.addEventListener("onmouseover", function(event){
-    //     event.target.style.backgroundColor = "yellow";
-    // })
-
-    // header.addEventListener("onmouseout", function(event) {
-    //     event.target.backgroundColor= "white";
-       
-    // })
-
-document.addEventListener('keydown', alertPopsOut);
-
-function alertPopsOut (event) {
-  if (event.target === 'keydown'){
-      alert('hi how are you')
-  };
+  }
 }
+document.addEventListener('keydown', closeOnEsc)
+
+//scroll
+
+window.addEventListener('scroll', function (){
+  let scrolled = window.scrollY;
+  if (scrolled === 1024){
+    alert('you have reached the end of the page')
+  }
+  console.log(scrolled);
+})
+
+
+
+// * [ ] Using your [index.js file](js/index.js), create 10 
+// [unique event listeners](https://developer.mozilla.org/en-US/docs/Web/Events).
+//  using your creativity to make the Fun Bus site more interactive.  Here are some
+//   unique events you could try to use: 
+// 	* [ ] `mouseover`
+// 	* [ ] `mouseout`
+// 	* [ ] `keydown`
+// 	* [ ] `scroll`
+
+// 	* [ ] `wheel`
+// 	* [ ] `drag / drop`
+// 	* [ ] `load`
+// 	* [ ] `focus`
+// 	* [ ] `resize`
+// 	* [ ] `select`
+// 	* [ ] `dblclick`
+
+
+
