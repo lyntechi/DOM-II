@@ -5,14 +5,14 @@ let header = document.querySelector(".main-navigation")
 //mouseover
 function launchOne (event){
   header.style.backgroundColor = "lightblue";
-  console.log('this is mouseover', event.target)
+ 
 }
 
 header.addEventListener('mouseover', launchOne)
 //mouseout
 function launchTwo (event){
   header.style.backgroundColor = "white";
-  console.log('this is mouseout', event.target)
+  
 }
 
 header.addEventListener('mouseout', launchTwo)
@@ -36,7 +36,26 @@ window.addEventListener('scroll', function (){
   if (scrolled === 1024){
     alert('you have reached the end of the page')
   }
-  console.log(scrolled);
+
+})
+
+//dbclick
+let imgFunBus = document.querySelector(".intro img")
+imgFunBus.addEventListener('dblclick', function (event){
+imgFunBus.src = 'https://images.unsplash.com/photo-1591155660724-7976243c7fb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1446&q=80';
+imgFunBus.style.height = "300px";
+imgFunBus.style.width = "800px"
+
+})
+
+//contextmenu
+
+let noContext = document.querySelectorAll("p")
+
+noContext.forEach(function(item){
+item.addEventListener('contextmenu', function(event){
+event.preventDefault();
+})
 })
 
 
@@ -49,6 +68,7 @@ window.addEventListener('scroll', function (){
 // 	* [ ] `mouseout`
 // 	* [ ] `keydown`
 // 	* [ ] `scroll`
+// 	* [ ] `dblclick`
 
 // 	* [ ] `wheel`
 // 	* [ ] `drag / drop`
@@ -56,7 +76,7 @@ window.addEventListener('scroll', function (){
 // 	* [ ] `focus`
 // 	* [ ] `resize`
 // 	* [ ] `select`
-// 	* [ ] `dblclick`
+
 
 
 
