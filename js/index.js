@@ -29,15 +29,7 @@ function closeOnEsc (event){
 }
 document.addEventListener('keydown', closeOnEsc)
 
-//scroll
 
-window.addEventListener('scroll', function (){
-  let scrolled = window.scrollY;
-  if (scrolled === 1024){
-    alert('you have reached the end of the page')
-  }
-
-})
 
 //dbclick
 let imgFunBus = document.querySelector(".intro img")
@@ -57,6 +49,80 @@ item.addEventListener('contextmenu', function(event){
 event.preventDefault();
 })
 })
+
+
+
+let contentDestination = document.querySelector(".content-destination")
+let input = document.createElement("input")
+let form = document.createElement("form")
+form.id = "form"
+contentDestination.appendChild(form)
+form.appendChild(input)
+console.log(form)
+input.style.display = "flex"
+input.style.width = "600px"
+input.style.marginTop = "20px"
+input.style.padding = "25px"
+let inputButton = document.createElement("button")
+inputButton.textContent = "submit"
+inputButton.style.margin = "20px 220px"
+inputButton.style.padding = "10px"
+inputButton.style.width = "150px" 
+inputButton.style.backgroundColor = "white"
+inputButton.style.color = "black"
+inputButton.style.fontSize = "1.4rem"
+form.appendChild(inputButton)
+let paragraph = document.createElement("p")
+contentDestination.appendChild(paragraph)
+paragraph.id = "log"
+let log = document.querySelector("#log")
+console.log(paragraph)
+
+
+//focus & blur
+
+input.addEventListener('focus', function(event){
+event.target.placeholder = "Type away :)"
+})
+input.addEventListener('blur', function(event){
+  event.target.placeholder = "Tell us what your dream destination look like?"
+  })
+
+
+//submit event
+form.addEventListener('submit', function(event){
+  log.textContent = `Comment submitted! Timestamp: ${event.timeStamp}`
+  event.preventDefault()
+})
+
+
+//drag
+inputButton.draggable = true;
+
+inputButton.addEventListener('drag', function(event){
+event.target.style.backgroundColor = "orange"
+console.log('user dragged button')
+})
+
+
+//click
+
+let allH2 = document.querySelectorAll("h2")
+
+allH2.forEach(function(item){
+  item.addEventListener('click', function(event){
+    event.target.style.fontSize = "6rem"
+    event.target.style.color = "purple"
+  })
+})
+
+
+
+
+
+
+
+
 
 
 
